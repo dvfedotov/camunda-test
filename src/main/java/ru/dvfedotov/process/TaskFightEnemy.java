@@ -22,10 +22,10 @@ public class TaskFightEnemy implements JavaDelegate {
 
         if (new Random().nextBoolean()) {
             enemyWarriors--;
-            log.info("Enemy warrior killed!");
+            log.info("Enemy warrior killed! Enemy = " + enemyWarriors);
         } else {
             army.remove(army.size() - 1);
-            log.info("Our warrior killed!");
+            log.info("Our warrior killed! Warrior =" + army.size());
         }
         delegateExecution.setVariable("enemyWarriors", enemyWarriors);
         delegateExecution.setVariable("warriors", army.size());

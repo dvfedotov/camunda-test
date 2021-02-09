@@ -32,7 +32,7 @@ public class TaskPrepareToBattle implements JavaDelegate {
 
         List<Boolean> army = new ArrayList<>(Collections.nCopies(warriors, true));
 
-        log.info("Prepare to battle! Enemy army =  " + enemyWarriors + "vs. our army: " + warriors);
+        log.info("Prepare to battle! Enemy army =  " + enemyWarriors + " vs. our army: " + warriors);
 
         delegateExecution.setVariable("army", army);
         delegateExecution.setVariable("enemyWarriors", enemyWarriors);

@@ -9,15 +9,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class TaskEvaluateBattle implements JavaDelegate {
 
-    private final Logger log = LoggerFactory.getLogger(TaskEvaluateBattle .class);
+    private final Logger log = LoggerFactory.getLogger(TaskEvaluateBattle.class);
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
 
         int warriors = (int) delegateExecution.getVariable("warriors");
         int enemyWarriors = (int) delegateExecution.getVariable("enemyWarriors");
-        log.info("warriors = " + warriors );
-        log.info("enemyWarriors = " + enemyWarriors );
+        log.info("warriors = " + warriors);
+        log.info("enemyWarriors = " + enemyWarriors);
         String battleStatus = "Undefined";
         boolean isWin = false;
 
