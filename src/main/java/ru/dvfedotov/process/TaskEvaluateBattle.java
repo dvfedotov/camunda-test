@@ -24,6 +24,8 @@ public class TaskEvaluateBattle implements JavaDelegate {
         if ((warriors - enemyWarriors) > 1) {
             isWin = true;
             battleStatus = "Victory";
+        } else {
+            battleStatus = "Falls";
         }
 
         delegateExecution.setVariable("isWin", isWin);
