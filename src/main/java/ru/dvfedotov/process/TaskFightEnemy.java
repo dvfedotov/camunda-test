@@ -19,6 +19,13 @@ public class TaskFightEnemy implements JavaDelegate {
         int enemyWarriors = (int) delegateExecution.getVariable("enemyWarriors");
 
         Thread.sleep(1000);
+//        Exception
+        int warriors = (int) delegateExecution.getVariable("warriors");
+        log.info("**************************Test Error warriors: " + warriors);
+        if (warriors < 20) {
+            log.info("Ups this is Exception in TaskFightEnemy! ");
+            throw new Exception("***********New Exception***********");
+        }
 
         if (new Random().nextBoolean()) {
             enemyWarriors--;
