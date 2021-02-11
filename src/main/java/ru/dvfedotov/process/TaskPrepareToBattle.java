@@ -26,6 +26,7 @@ public class TaskPrepareToBattle implements JavaDelegate {
 
         maxWarriors = maxWarriors == 0 ? 100 : maxWarriors;
 
+
         if (warriors < 1 || warriors > 100) {
             throw new BpmnError("warriorsError");
         }
