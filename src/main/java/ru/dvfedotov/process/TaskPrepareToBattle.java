@@ -56,7 +56,14 @@ public class TaskPrepareToBattle implements JavaDelegate {
 
         log.info("Prepare to battle! Enemy army =  " + enemyWarriors + " vs. our army: " + warriors);
 
-        ObjectValue jsonArmy = Variables.objectValue(army).serializationDataFormat("application/json").create();
+//        ObjectValue jsonArmy = Variables.objectValue(army).serializationDataFormat("application/json").create();
+        /*
+        при добавлении в  application.yaml
+        camunda:
+             bpm:
+                default-serelization-format: application/json
+         */
+        ObjectValue jsonArmy = Variables.objectValue(army).create();
 
         delegateExecution.setVariable("army", army);
         delegateExecution.setVariable("jsonArmy", jsonArmy);
@@ -85,10 +92,11 @@ public class TaskPrepareToBattle implements JavaDelegate {
             SpinJsonNode node = JSON(response.getResponse());
             SpinJsonNode customerProperty = node.prop("data");
             SpinList customers = customerProperty.elements();
-            SpinJsonNode customer = (SpinJsonNode)customers.get(0);
-            warrior.setFirstName(customer.prop("firstname").stringValue());
-            warrior.setLastName(customer.prop("lastname").stringValue());
-            warrior.setUuid(customer.prop("uuid").stringValue());
+//            SpinJsonNode customer = (SpinJsonNode)customers.get(0);
+//            warrior.setFirstName(customer.prop("firstname").stringValue());
+//            warrior.setLastName(customer.prop("lastname").stringValue());
+//            warrior.setUuid(customer.prop("uuid").stringValue());
+            warrior = JSON(customers.get(0)).mapTo(Warrior.class);
             warrior.setAlive(true);
             warrior.setHp((int) (Math.random() * 100));
 //            List<HashMap<String, String>> data = node.prop("data").mapTo(ArrayList.class);
