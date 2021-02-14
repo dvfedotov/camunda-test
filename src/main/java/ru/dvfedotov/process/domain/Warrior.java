@@ -1,39 +1,56 @@
 package ru.dvfedotov.process.domain;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Warrior implements Serializable {
 
     private static final long serialVersionUID = -8300161615456728969L;
-    private String name;
-    private String title;
+    @JsonAlias("firstname")
+    private String firstName;
+    @JsonAlias("lastname")
+    private String lastName;
+    @JsonAlias("uuid")
+    private String uuid;
     private Integer hp;
     private Boolean isAlive;
 
     public Warrior() {
     }
 
-    public Warrior(String name, String title, Integer hp, Boolean isAlive) {
-        this.name = name;
-        this.title = title;
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public Warrior(String name, String title, String uuid, Integer hp, Boolean isAlive) {
+        this.firstName = name;
+        this.lastName = title;
+        this.uuid = uuid;
         this.hp = hp;
         this.isAlive = isAlive;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getTitle() {
-        return title;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Integer getHp() {
@@ -55,10 +72,10 @@ public class Warrior implements Serializable {
     @Override
     public String toString() {
         return "Warrior{"
-            + "name='" + name + '\''
-            + ", title='" + title + '\''
-            + ", hp=" + hp
-            + ", isAlive=" + isAlive
+            + "firstName ='" + firstName + '\''
+            + ", lastName ='" + lastName + '\''
+            + ", hp =" + hp
+            + ", isAlive =" + isAlive
             + '}';
     }
 }

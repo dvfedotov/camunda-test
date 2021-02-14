@@ -60,6 +60,7 @@
       <groupId>org.camunda.spin</groupId>
       <artifactId>camunda-spin-dataformat-json-jackson</artifactId>
     </dependency>
+
     <!-- mandatory for serialization -->
     <dependency>
       <groupId>org.camunda.bpm</groupId>

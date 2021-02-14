@@ -1,6 +1,6 @@
 spring.datasource.url: jdbc:h2:file:./camunda-h2-database
+url: https://fakerapi.it/api/v1/users?_quantity=1&_gender=male
 maxWarriors: 100
-
 camunda.bpm.admin-user:
   id: demo
   password: demo
